@@ -1,3 +1,5 @@
+/* src/app/globals.css */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,6 +18,6 @@
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background: none; /* 背景色をリセット */
   font-family: Arial, Helvetica, sans-serif;
 }
