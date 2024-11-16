@@ -1,3 +1,4 @@
+// src/components/Component.tsx
 "use client";
 
 import { useState, useCallback } from "react";
@@ -9,6 +10,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CarouselApi } from "@/components/ui/carousel";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
+import CircularText from "@/components/CircularText"; // CircularText.tsx をインポート
 
 export default function Component() {
   const [api, setApi] = useState<CarouselApi | null>(null);
@@ -36,9 +38,15 @@ export default function Component() {
   return (
     <div className="min-h-screen bg-[#faf9f7] relative overflow-hidden">
       <div className="absolute inset-0 z-0">
+        {/* 既存のブロブ */}
         <div className="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
         <div className="absolute top-0 -right-4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
         <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+        
+        {/* 追加のブロブ */}
+        <div className="absolute top-1/2 -left-20 w-60 h-60 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-60 animate-blob animation-delay-1000"></div>
+        <div className="absolute bottom-10 right-10 w-80 h-80 bg-green-300 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-blob animation-delay-3000"></div>
+        <div className="absolute top-10 right-20 w-64 h-64 bg-orange-300 rounded-full mix-blend-multiply filter blur-xl opacity-65 animate-blob animation-delay-5000"></div>
       </div>
 
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#faf9f7]/80 backdrop-blur-sm">
@@ -86,7 +94,7 @@ export default function Component() {
                 duration={500}
                 className="text-sm hover:text-gray-600 cursor-pointer"
               >
-                
+                Contact
               </ScrollLink>
             </nav>
           </div>
@@ -111,11 +119,12 @@ export default function Component() {
                 height={400}
                 className="w-full h-auto rounded-full"
               />
-              <div className="absolute -right-8 -bottom-8 animate-spin-slow">
-                <p className="text-xs tracking-wider">
-                  AI Engineer React Next.js TypeScript
-                </p>
-              </div>
+              {/* CircularTextコンポーネントを配置 */}
+              <CircularText
+                text="AI Engineer React Next.js TypeScript"
+                radius={60}
+                className="absolute -right-8 -bottom-8"
+              />
             </div>
           </div>
         </div>
@@ -174,7 +183,7 @@ export default function Component() {
         id="contact"
         className="py-16 px-4 bg-[#faf9f7]/80 backdrop-blur-sm relative z-10"
       >
-       
+        {/* Contactセクションの内容 */}
       </section>
     </div>
   );

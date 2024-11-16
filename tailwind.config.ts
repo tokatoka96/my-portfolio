@@ -13,39 +13,24 @@ const config: Config = {
   theme: {
     container: {
       center: true,
-      padding: "2rem", // 修正: 文字列に単位を含める
+      padding: "2rem",
       screens: {
-        "2xl": "1400px", // 修正: 文字列に単位を含める
+        "2xl": "1400px",
       },
     },
     extend: {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        // 他のカスタムカラーが必要な場合はここに追加
       },
       keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
         blob: {
-          "0%": {
-            transform: "translate(0px, 0px) scale(1)",
-          },
-          "33%": {
-            transform: "translate(30px, -50px) scale(1.1)",
-          },
-          "66%": {
-            transform: "translate(-20px, 20px) scale(0.9)",
-          },
-          "100%": {
-            transform: "translate(0px, 0px) scale(1)",
-          },
+          "0%": { transform: "translate(0px, 0px) scale(1)" },
+          "20%": { transform: "translate(10px, -20px) scale(1.05)" },
+          "40%": { transform: "translate(20px, 10px) scale(0.95)" },
+          "60%": { transform: "translate(-10px, 20px) scale(1.1)" },
+          "80%": { transform: "translate(-20px, -10px) scale(0.9)" },
+          "100%": { transform: "translate(0px, 0px) scale(1)" },
         },
         "spin-slow": {
           "0%": { transform: "rotate(0deg)" },
@@ -53,25 +38,31 @@ const config: Config = {
         },
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-        blob: "blob 7s infinite",
+        blob: "blob 8s infinite",
         "spin-slow": "spin-slow 10s linear infinite",
       },
     },
   },
   plugins: [
-    require("tailwindcss-animate"),
     plugin(function ({ addUtilities }) {
       const newUtilities = {
+        ".animation-delay-1000": {
+          "animation-delay": "1000ms",
+        },
         ".animation-delay-2000": {
-          "animation-delay": "2000ms", // 修正済み
+          "animation-delay": "2000ms",
+        },
+        ".animation-delay-3000": {
+          "animation-delay": "3000ms",
         },
         ".animation-delay-4000": {
-          "animation-delay": "4000ms", // 修正済み
+          "animation-delay": "4000ms",
+        },
+        ".animation-delay-5000": {
+          "animation-delay": "5000ms",
         },
       };
-      addUtilities(newUtilities); // 第2引数を削除
+      addUtilities(newUtilities);
     }),
   ],
 };
