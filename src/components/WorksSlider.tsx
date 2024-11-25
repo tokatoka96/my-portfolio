@@ -12,10 +12,11 @@ import {
 } from "@/components/ui/carousel";
 import Image from "next/image";
 import Link from "next/link";
+import { CarouselApi } from "@/components/ui/carousel"; // 正しくインポート
 
 interface WorksSliderProps {
   works: Work[];
-  setApi: (api: any) => void; // CarouselApi の正確な型を指定してください
+  setApi: (api: CarouselApi) => void; // any を CarouselApi に変更
 }
 
 const WorksSlider: React.FC<WorksSliderProps> = ({ works, setApi }) => {
@@ -56,6 +57,7 @@ const WorksSlider: React.FC<WorksSliderProps> = ({ works, setApi }) => {
           ))}
         </CarouselContent>
       </Carousel>
+      {/* Buttons は削除 */}
     </div>
   );
 };

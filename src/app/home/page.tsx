@@ -1,4 +1,4 @@
-// src/components/Component.tsx
+//src/app/home/page.tsx
 "use client";
 
 import { useState, useCallback } from "react";
@@ -7,7 +7,6 @@ import WorksSlider from "@/components/WorksSlider";
 import { works } from "@/data/works";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
-import Link from "next/link";
 import { CarouselApi } from "@/components/ui/carousel";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import CircularText from "@/components/CircularText"; // CircularText.tsx をインポート
