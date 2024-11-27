@@ -6,12 +6,10 @@ import { works } from "@/data/works";
 import { CarouselApi } from "@/components/ui/carousel";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import CircularText from "@/components/CircularText";
-import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 
 export default function Component() {
-  // 'api' を使用しない場合はアンダースコアを使用
-  const [_api, setApi] = useState<CarouselApi | null>(null);
+  const [, setApi] = useState<CarouselApi | null>(null);
 
   const scrollToTop = () => {
     scroll.scrollToTop();
@@ -20,7 +18,6 @@ export default function Component() {
   return (
     <div className="min-h-screen bg-[#faf9f7] relative overflow-hidden">
       <div className="absolute inset-0 z-0">
-        {/* 背景の装飾 */}
         <div className="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
         <div className="absolute top-0 -right-4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
         <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
@@ -71,36 +68,29 @@ export default function Component() {
         </div>
       </header>
 
-      <section id="hero" className="pt-32 pb-16 px-4 relative z-10">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-5xl font-bold mb-6">Ryosuke Tokashiki</h1>
-              <p className="text-lg mb-8">生成AIエンジニア</p>
-              <p className="text-sm text-gray-600 mb-8">
-                AIを活用したサービス展開に興味があり、縁があって前職では、生成AIエンジニアとして業務に従事しておりました。生成AIの力で効率的なエンジニアリングを実現し、クライアントのビジネス課題を解決しています。
-              </p>
-            </div>
-            <div className="relative">
-              <Image
-                src="/placeholder.svg?height=400&width=400"
-                alt="Ryosuke Tokashiki"
-                width={400}
-                height={400}
-                className="w-full h-auto rounded-full"
-              />
-              <CircularText
-                text="React Next.js TypeScript Figma Chat-GPT AI Engineer"
-                radius={180}
-                fontSize={18}
-                color="#1a1a1a"
-                rotationSpeed={30}
-                className="absolute -right-32 -bottom-32"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+     <section id="hero" className="pt-32 pb-8 md:pb-16 px-4 relative z-10">
+  <div className="container mx-auto max-w-6xl">
+    <div className="grid md:grid-cols-2 gap-12 md:gap-12 items-center">
+      <div>
+        <h1 className="text-5xl font-bold mb-6">Ryosuke Tokashiki</h1>
+        <p className="text-lg mb-8">生成AIエンジニア</p>
+        <p className="text-sm text-gray-600 mb-4 md:mb-8">
+          AIを活用したサービス展開に興味があり、縁があって前職では、生成AIエンジニアとして業務に従事しておりました、。生成AIの力で効率的なエンジニアリングを実現し、クライアントのビジネス課題を解決しています。
+        </p>
+      </div>
+      <div className="relative h-[400px] -mt-8 md:mt-0">
+        <CircularText
+          text="React Next.js TypeScript Figma Chat-GPT AI Engineer"
+          radius={180}
+          fontSize={18}
+          color="#1a1a1a"
+          rotationSpeed={30}
+          className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
+        />
+      </div>
+    </div>
+  </div>
+</section>
 
       <section id="skills" className="py-16 px-4 relative z-10">
         <div className="container mx-auto max-w-6xl">
@@ -188,3 +178,4 @@ const skills = [
     ],
   },
 ];
+

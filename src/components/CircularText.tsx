@@ -17,7 +17,7 @@ const CircularText: React.FC<CircularTextProps> = ({
   className = '',
   fontSize = 16,
   color = '#1a1a1a',
-  rotationSpeed = 7
+  rotationSpeed = 10
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
