@@ -1,34 +1,16 @@
-//src/app/home/page.tsx
 "use client";
 
-import { useState, useCallback } from "react";
-import { Button } from "@/components/ui/button";
+import { useState } from "react";
 import WorksSlider from "@/components/WorksSlider";
 import { works } from "@/data/works";
-import { Card, CardContent } from "@/components/ui/card";
-import Image from "next/image";
 import { CarouselApi } from "@/components/ui/carousel";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
-import CircularText from "@/components/CircularText"; // CircularText.tsx をインポート
+import CircularText from "@/components/CircularText";
+import Image from "next/image";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function Component() {
   const [api, setApi] = useState<CarouselApi | null>(null);
-
-  const handlePrev = useCallback(() => {
-    if (api) {
-      api.scrollPrev();
-    } else {
-      console.log("Carousel API is not available yet.");
-    }
-  }, [api]);
-
-  const handleNext = useCallback(() => {
-    if (api) {
-      api.scrollNext();
-    } else {
-      console.log("Carousel API is not available yet.");
-    }
-  }, [api]);
 
   const scrollToTop = () => {
     scroll.scrollToTop();
@@ -37,12 +19,9 @@ export default function Component() {
   return (
     <div className="min-h-screen bg-[#faf9f7] relative overflow-hidden">
       <div className="absolute inset-0 z-0">
-        {/* 既存のブロブ */}
         <div className="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
         <div className="absolute top-0 -right-4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
         <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
-        
-        {/* 追加のブロブ */}
         <div className="absolute top-1/2 -left-20 w-60 h-60 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-60 animate-blob animation-delay-1000"></div>
         <div className="absolute bottom-10 right-10 w-80 h-80 bg-green-300 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-blob animation-delay-3000"></div>
         <div className="absolute top-10 right-20 w-64 h-64 bg-orange-300 rounded-full mix-blend-multiply filter blur-xl opacity-65 animate-blob animation-delay-5000"></div>
@@ -85,16 +64,6 @@ export default function Component() {
               >
                 Works
               </ScrollLink>
-              <ScrollLink
-                to="contact"
-                spy={true}
-                smooth={true}
-                offset={-64}
-                duration={500}
-                className="text-sm hover:text-gray-600 cursor-pointer"
-              >
-                Contact
-              </ScrollLink>
             </nav>
           </div>
         </div>
@@ -118,11 +87,13 @@ export default function Component() {
                 height={400}
                 className="w-full h-auto rounded-full"
               />
-              {/* CircularTextコンポーネントを配置 */}
               <CircularText
-                text="AI Engineer React Next.js TypeScript"
-                radius={60}
-                className="absolute -right-8 -bottom-8"
+                text="React Next.js TypeScript Figma Chat-GPT AI Engineer"
+                radius={180}
+                fontSize={18}
+                color="#1a1a1a"
+                rotationSpeed={30}
+                className="absolute -right-32 -bottom-32"
               />
             </div>
           </div>
@@ -161,20 +132,6 @@ export default function Component() {
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-4xl font-bold mb-12">Works</h2>
           <WorksSlider works={works} setApi={setApi} />
-          <div className="flex justify-center mt-4 gap-2">
-            <Button
-              onClick={handlePrev}
-              className="bg-emerald-600 hover:bg-emerald-700 text-white h-10 w-10 rounded-full p-0"
-            >
-              ←
-            </Button>
-            <Button
-              onClick={handleNext}
-              className="bg-emerald-600 hover:bg-emerald-700 text-white h-10 w-10 rounded-full p-0"
-            >
-              →
-            </Button>
-          </div>
         </div>
       </section>
 
@@ -192,7 +149,7 @@ const skills = [
   {
     title: "生成AI",
     items: [
-      "Claude AI、Chat GPT、GPT-4の活用",
+      "Claude AI、Chat GPT、v0の活用",
       "自動化や業務効率化の実現",
       "AIを活用したサービス展開",
     ],
@@ -229,3 +186,4 @@ const skills = [
     ],
   },
 ];
+

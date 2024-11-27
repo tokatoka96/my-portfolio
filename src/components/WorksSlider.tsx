@@ -1,5 +1,3 @@
-// src/components/WorksSlider.tsx
-
 "use client";
 
 import React from "react";
@@ -9,19 +7,21 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
 import Link from "next/link";
-import { CarouselApi } from "@/components/ui/carousel"; // 正しくインポート
+import { CarouselApi } from "@/components/ui/carousel";
 
 interface WorksSliderProps {
   works: Work[];
-  setApi: (api: CarouselApi) => void; // any を CarouselApi に変更
+  setApi: (api: CarouselApi) => void;
 }
 
 const WorksSlider: React.FC<WorksSliderProps> = ({ works, setApi }) => {
   return (
-    <div className="relative w-full max-w-[1100px] mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
+    <div className="relative w-full max-w-[1100px] mx-auto">
       <Carousel setApi={setApi} className="w-full">
         <CarouselContent>
           {works.map((work: Work, index: number) => (
@@ -56,10 +56,16 @@ const WorksSlider: React.FC<WorksSliderProps> = ({ works, setApi }) => {
             </CarouselItem>
           ))}
         </CarouselContent>
+        <div className="absolute inset-y-0 left-0 flex items-center">
+          <CarouselPrevious className="-ml-12 bg-white/80 hover:bg-white" />
+        </div>
+        <div className="absolute inset-y-0 right-0 flex items-center">
+          <CarouselNext className="-mr-12 bg-white/80 hover:bg-white" />
+        </div>
       </Carousel>
-      {/* Buttons は削除 */}
     </div>
   );
 };
 
 export default WorksSlider;
+
