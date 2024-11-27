@@ -78,7 +78,7 @@ export default function Component() {
               <h1 className="text-5xl font-bold mb-6">Ryosuke Tokashiki</h1>
               <p className="text-lg mb-8">生成AIエンジニア</p>
               <p className="text-sm text-gray-600 mb-8">
-                AIを活用したサービス展開に興味があり、縁があって合同会社アリガトサンで生成AIエンジニアとして業務に従事しています。生成AIの力で効率的なエンジニアリングを実現し、クライアントのビジネス課題を解決しています。
+                AIを活用したサービス展開に興味があり、縁があって前職では、生成AIエンジニアとして業務に従事しておりました。生成AIの力で効率的なエンジニアリングを実現し、クライアントのビジネス課題を解決しています。
               </p>
             </div>
             <div className="relative">
