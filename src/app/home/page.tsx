@@ -10,7 +10,8 @@ import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 
 export default function Component() {
-  const [api, setApi] = useState<CarouselApi | null>(null);
+  // 'api' を使用しない場合はアンダースコアを使用
+  const [_api, setApi] = useState<CarouselApi | null>(null);
 
   const scrollToTop = () => {
     scroll.scrollToTop();
@@ -19,6 +20,7 @@ export default function Component() {
   return (
     <div className="min-h-screen bg-[#faf9f7] relative overflow-hidden">
       <div className="absolute inset-0 z-0">
+        {/* 背景の装飾 */}
         <div className="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
         <div className="absolute top-0 -right-4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
         <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
@@ -186,4 +188,3 @@ const skills = [
     ],
   },
 ];
-
